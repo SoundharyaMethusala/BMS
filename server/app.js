@@ -11,10 +11,17 @@ const showRoutes = require('./Routes/showRoutes')
 const bookingRoutes = require('./Routes/bookRoutes');
 const helmet = require("helmet");
 const mongoSanitize=require("express-mongo-sanitize");
+const path=require('path');
 
 const app=express();
 app.use(cors());
 const PORT=8080;
+
+app.use(express.static(path.join(__dirname,"build")));
+
+app.get("*",(req,res)=>{
+  res.sendFile(path.join(__dirname,"build","index.html"));
+})
 
 app.use(helmet());
 

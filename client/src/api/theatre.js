@@ -1,6 +1,6 @@
 import {createAxiosInstance} from '.'
 
-const BASE_URL = "http://localhost:8080/api/theatres"
+const BASE_URL = "/api/theatres"
 
 export const addTheatre = async (values)=>{
     try{

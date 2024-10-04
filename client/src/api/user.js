@@ -1,6 +1,6 @@
 import {createAxiosInstance} from './index'
 
-const BASE_URL = "http://localhost:8080/api/users";
+const BASE_URL = "/api/users";
 
 
 export const RegisterUser = async (values) => {

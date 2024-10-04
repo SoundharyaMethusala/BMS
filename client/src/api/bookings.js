@@ -1,6 +1,6 @@
 import { createAxiosInstance } from ".";
 
-const BASE_URL = "http://localhost:8080/api/booking"
+const BASE_URL = "/api/booking"
 
 const axiosInstance = createAxiosInstance();
 
