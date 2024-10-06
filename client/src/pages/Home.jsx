@@ -13,6 +13,7 @@ export default function Home(){
     const getData = async()=>{
         try{
             const response = await getAllMovies();
+            console.log("moviesresponse-homepage",response);
             if(response.success){
                 setMovies(response.data);
             }

@@ -10,7 +10,6 @@ export default function Login() {
       try{
         const res = await LoginUser(values);
         //console.log("values",values);
-        const data=res.data;
         //console.log("login.jsx",data);
         if(res.success){
           message.success(res.message);

@@ -9,7 +9,6 @@ export default function Register(){
         console.log(values);
         const res = await RegisterUser(values);
         console.log(res);
-        const data=res.data;
         if(res.success){
             message.success(res.message);
             navigate('/login');
