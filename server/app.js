@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const express=require('express');
 const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/db');
@@ -11,10 +9,24 @@ const showRoutes = require('./Routes/showRoutes')
 const bookingRoutes = require('./Routes/bookRoutes');
 const helmet = require("helmet");
 const mongoSanitize=require("express-mongo-sanitize");
+const path = require('path');
 
 const app=express();
+
+require('dotenv').config();
+
+app.use(express.static(path.join(__dirname,'build')));
+
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'build','index.html'));
+})
+
+connectDB(process.env.DB_URL);
+
 app.use(cors());
 const PORT=8080;
+
+
 
 app.use(helmet());
 
@@ -52,7 +64,7 @@ app.use('/api/theatres',theatreRoutes);
 app.use('/api/show',showRoutes);
 app.use('/api/booking',bookingRoutes)
 
-connectDB(process.env.DB_URL);
+
 
 app.listen(PORT,()=>{
   console.log( `Server is running on port ${PORT}`);
